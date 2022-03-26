@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
+import Layout from '../components/Layout'
 
 export default function MyApp(props: AppProps) {
     const { Component, pageProps } = props
@@ -19,8 +20,9 @@ export default function MyApp(props: AppProps) {
                     content="minimum-scale=1, initial-scale=1, width=device-width"
                 />
             </Head>
-
-            <Component {...pageProps} />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
         </>
     )
 }
