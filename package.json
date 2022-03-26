@@ -11,7 +11,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc",
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "next": "latest",
