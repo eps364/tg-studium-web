@@ -1,14 +1,22 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+import useDarkMode from 'use-dark-mode'
 import Layout from '../components/Layout'
+import '../styles/global.css'
+import {
+    darkTheme,
+    GlobalStyles,
+    lightTheme,
+} from '../styles/themes/ThemeConfig'
 
-export default function MyApp(props: AppProps) {
-    const { Component, pageProps } = props
+export default function MyApp({ Component, pageProps }: AppProps) {
+    const [isMounted, setIsMounted] = useState(false)
+    const darkmode = useDarkMode(true)
+    const theme = darkmode.value ? darkTheme : lightTheme
     useEffect(() => {
-        const jssStyles = document.querySelector('#jss-server-side')
-        if (jssStyles && jssStyles.parentNode)
-            jssStyles.parentNode.removeChild(jssStyles)
+        setIsMounted(true)
     }, [])
 
     return (
@@ -20,9 +28,16 @@ export default function MyApp(props: AppProps) {
                     content="minimum-scale=1, initial-scale=1, width=device-width"
                 />
             </Head>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <ThemeProvider theme={theme}>
+                <Layout>
+                    <GlobalStyles />
+                    <button onClick={darkmode.toggle}>Switch Mode</button>
+                    <button onClick={darkmode.enable}>Dark Mode</button>
+                    <button onClick={darkmode.disable}>Light Mode</button>
+
+                    {isMounted && <Component {...pageProps} />}
+                </Layout>
+            </ThemeProvider>
         </>
     )
 }
