@@ -3,7 +3,6 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import useDarkMode from 'use-dark-mode'
-import Layout from '../components/Layout'
 import '../styles/global.css'
 import {
     darkTheme,
@@ -29,14 +28,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 />
             </Head>
             <ThemeProvider theme={theme}>
-                <Layout>
-                    <GlobalStyles />
-                    <button onClick={darkmode.toggle}>Switch Mode</button>
-                    <button onClick={darkmode.enable}>Dark Mode</button>
-                    <button onClick={darkmode.disable}>Light Mode</button>
-
-                    {isMounted && <Component {...pageProps} />}
-                </Layout>
+                <GlobalStyles />
+                <button onClick={darkmode.toggle}>Switch Mode</button>
+                <button onClick={darkmode.enable}>Dark Mode</button>
+                <button onClick={darkmode.disable}>Light Mode</button>
+                {isMounted && <Component {...pageProps} />}
             </ThemeProvider>
         </>
     )

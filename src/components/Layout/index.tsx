@@ -1,3 +1,12 @@
-export default function Layout({ children }) {
-    return <main>{children}</main>
+import Footer from '../Footer'
+import Navbar from '../Navbar'
+
+export default function Layout({ children }: Element) {
+    return (
+        <>
+            <Navbar />
+            {children}
+            <Footer />
+        </>
+    )
 }
