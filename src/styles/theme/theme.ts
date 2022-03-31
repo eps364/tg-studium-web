@@ -1,6 +1,9 @@
 //https://materialui.co/colors/
 //https://tailwindcolor.com/
 //https://www.fluentcolors.com/
+
+export type ThemeType = typeof lightTheme;
+
 export const lightTheme = {
     // Primary Colors
     primary: '#4263eb',
