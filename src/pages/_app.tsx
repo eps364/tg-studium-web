@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <button onClick={toggleTheme}>
                     <Image
                         alt="Next.js logo"
-                        src="/statics/images/logo/logo.png"
+                        src="/statics/images/logo/logo.svg"
                         width={50}
                         height={50}
                     />
