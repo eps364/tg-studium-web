@@ -39,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::placeholder {
-        color: unset;
+        color: ${({ theme }) => theme.neutralLight};
     }
 
     :where([hidden]) {
@@ -72,8 +72,62 @@ export const GlobalStyles = createGlobalStyle`
     html {
         font-size: 16px;
         font-family: 'Roboto', sans-serif;
-        color: ${({ theme }) => theme.neutral};
-        background-color: ${({ theme }) => theme.second40};
+        color: ${({ theme }) => theme.text};
+        background-color: ${({ theme }) => theme.background};
+    }
+
+    h1{
+        font-size: calc(7 * (1.33rem)) ;
+        font-weight: 500 ;
+            }
+
+    h2{
+        font-size: calc(5 * (1.33rem));
+    }
+
+    h3{
+        font-size: calc(4 * (1.33rem));
+    }
+
+    h4{
+        font-size: calc(3 * (1.33rem));
+    }
+
+    h5{
+        font-size: calc(2 * (1.33rem));
+    }
+
+    h6{
+        font-size: calc(1 * (1.33rem));
+    }
+
+    button.sucess{
+        color: ${({ theme }) => theme.sucess};
+        &:hover{
+            color: ${({ theme }) => theme.sucessLight};
+        }
+    }
+
+    button.warning{
+        color: ${({ theme }) => theme.warning};
+
+        &:hover{
+            color: ${({ theme }) => theme.warningLight};
+        }
+    }
+
+    button.error{
+        color: ${({ theme }) => theme.error};
+        &:hover{
+            color: ${({ theme }) => theme.errorLight};
+        }
+    }
+
+    button.info{
+        color: ${({ theme }) => theme.info};
+        &:hover{
+            color: ${({ theme }) => theme.infoLight};
+        }
     }
 
 `;
