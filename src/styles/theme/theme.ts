@@ -42,7 +42,7 @@ export const lightTheme = {
 
 export const darkTheme = {
     // Primary Colors
-    primary: '#ffffff',
+    primary: '#4263eb',
     primaryLight: '#4263eb',
     primaryDark: '#4263eb',
 
