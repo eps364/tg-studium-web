@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import Layout from '../components/Layout'
 import { GlobalStyles } from '../styles/theme/global'
 import { darkTheme, lightTheme } from '../styles/theme/theme'
 
@@ -26,16 +27,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 />
             </Head>
             <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-                <GlobalStyles />
-                <button onClick={toggleTheme}>
-                    <Image
-                        alt="Next.js logo"
-                        src="/statics/images/logo/logo.svg"
-                        width={50}
-                        height={50}
-                    />
-                </button>
-                <Component {...pageProps} />
+                <Layout>
+                    <GlobalStyles />
+                    <button onClick={toggleTheme}>
+                        <Image
+                            alt="logo"
+                            src="/statics/images/logo/logo.svg"
+                            width={100}
+                            height={100}
+                        />
+                    </button>
+                    <Component {...pageProps} />
+                </Layout>
             </ThemeProvider>
         </>
     )

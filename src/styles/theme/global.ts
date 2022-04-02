@@ -101,6 +101,11 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc(1 * (1.33rem));
     }
 
+    p{
+        font-size: calc(1 * (1.33rem));
+        width: 100%;
+    }
+
     button.sucess{
         color: ${({ theme }) => theme.sucess};
         &:hover{
@@ -130,4 +135,39 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
+    div{
+        
+    }
+
+    div.container{
+        
+    }
+
+    nav{
+        width: 100vw;
+        height: 3rem;
+        display: flex;
+        position: fixed;
+        
+        z-index: 99;
+        color: ${({ theme }) => theme.background};
+        background-color: ${({ theme }) => theme.primary};
+        a {
+            margin: auto 20px auto 40px;
+            text-decoration: none;
+            font-weight: bold;
+            color: ${({ theme }) => theme.background};
+            background-color: ${({ theme }) => theme.primary};
+        }
+        li {
+            float: left;
+            list-style: none;
+            margin-left: 20px;
+            color: ${({ theme }) => theme.background};
+            background-color: ${({ theme }) => theme.primary};
+        }
+        
+    }
+
+    
 `;
